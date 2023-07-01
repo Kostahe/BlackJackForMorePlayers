@@ -49,8 +49,6 @@ public class Main {
         System.out.println("Blackjack hands are scored by their point total.\nThe hand with the highest total wins as long as it doesn't exceed 21.\nThe hand with a higher total than 21 is said to bust.");
         System.out.println("Max amount of players is 7");
     }
-
-
     public static void game(ArrayList<Player> playerArrayList) {
 
         int maxPoints = 0;

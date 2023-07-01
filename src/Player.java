@@ -13,7 +13,6 @@ public class Player {
         for(int i = 0; i < 2;i++) {
             this.takeCard();
         }
-
     }
     public int getSumaValueCards() {
         return sumaValue;
@@ -24,11 +23,9 @@ public class Player {
     public int getId() {
         return id;
     }
-
     public ArrayList<Card> getCardcollection() {
         return cardcollection;
     }
-
     public void setSumaValue(int sumaValue) {
         this.sumaValue = sumaValue;
     }
@@ -41,20 +38,9 @@ public class Player {
         return "Player" + this.id + " : " + this.name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Player player = (Player) o;
-        return sumaValue == player.sumaValue && id == player.id && Objects.equals(name, player.name) && Objects.equals(cardcollection, player.cardcollection);
-    }
-
     public void takeCard() {
         Card card = Card.getRandom();
         cardcollection.add(card);
         sumaValue += card.getVALUE();
     }
-
-
-
 }
