@@ -96,10 +96,11 @@ public class Main {
                 maxPoints = end_players.getSumaValueCards();
             }
         }
-        for(Player end_players: winnerPlayers) {
-            if(end_players.getSumaValueCards() != maxPoints) {
-                winnerPlayers.remove(end_players);
-                loosePlayers.add(end_players);
+        // for loop is here to prevent ConcurrentModificationException
+        for(int i = 0; i < winnerPlayers.size()-1; i++) {
+            if(winnerPlayers.get(i).getSumaValueCards() != maxPoints) {
+                winnerPlayers.remove(i);
+                loosePlayers.add(winnerPlayers.get(i));
             }
         }
         System.out.println("Players that lost:");
@@ -111,6 +112,7 @@ public class Main {
         for (Player winner_player: winnerPlayers) {
             System.out.println(winner_player);
         }
+        System.out.println();
         loosePlayers.clear();
         winnerPlayers.clear();
     }
