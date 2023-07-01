@@ -3,7 +3,7 @@ import java.util.Objects;
 
 public class Player {
     private int sumaValue = 0;
-    private int id;
+    final private int id;
     private String name;
     private ArrayList<Card> cardcollection = new ArrayList<>();
 
@@ -15,7 +15,6 @@ public class Player {
         }
 
     }
-
     public int getSumaValueCards() {
         return sumaValue;
     }
@@ -42,12 +41,6 @@ public class Player {
         return "Player" + this.id + " : " + this.name;
     }
 
-    public void takeCard() {
-        Card card = Card.getRandom();
-        cardcollection.add(card);
-        sumaValue += card.getVALUE();
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -55,5 +48,13 @@ public class Player {
         Player player = (Player) o;
         return sumaValue == player.sumaValue && id == player.id && Objects.equals(name, player.name) && Objects.equals(cardcollection, player.cardcollection);
     }
+
+    public void takeCard() {
+        Card card = Card.getRandom();
+        cardcollection.add(card);
+        sumaValue += card.getVALUE();
+    }
+
+
 
 }
