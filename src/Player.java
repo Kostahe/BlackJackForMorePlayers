@@ -5,7 +5,7 @@ public class Player {
     private int sumaValue = 0;
     final private int id;
     private String name;
-    private ArrayList<Card> cardcollection = new ArrayList<>();
+    private ArrayList<Card> cardCollection = new ArrayList<>();
 
     public Player(String name, int id) {
         this.name = name;
@@ -23,8 +23,8 @@ public class Player {
     public int getId() {
         return id;
     }
-    public ArrayList<Card> getCardcollection() {
-        return cardcollection;
+    public ArrayList<Card> getCardCollection() {
+        return cardCollection;
     }
     public void setSumaValue(int sumaValue) {
         this.sumaValue = sumaValue;
@@ -40,7 +40,7 @@ public class Player {
 
     public void takeCard() {
         Card card = Card.getRandom();
-        cardcollection.add(card);
+        cardCollection.add(card);
         sumaValue += card.getVALUE();
     }
 }

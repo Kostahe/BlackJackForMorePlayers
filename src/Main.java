@@ -61,7 +61,7 @@ public class Main {
             System.out.println(player.getName() + " now plays!");
             loop: while (true) {
                 System.out.println("Your cards are: ");
-                for(Card card : player.getCardcollection()) {
+                for(Card card : player.getCardCollection()) {
                     System.out.println(card + " ");
                 }
                 System.out.println("Suma is: " + player.getSumaValueCards());
@@ -70,7 +70,7 @@ public class Main {
                 switch (scanner.nextInt()) {
                     case 1:
                         player.takeCard();
-                        System.out.println("You took: " + player.getCardcollection().get(player.getCardcollection().toArray().length-1));
+                        System.out.println("You took: " + player.getCardCollection().get(player.getCardCollection().toArray().length-1));
                         break;
                     case 2:
                         System.out.println("____________________________");
@@ -81,17 +81,17 @@ public class Main {
                 }
             }
         }
-        for(Player end_players: playerArrayList) {
-            if(end_players.getSumaValueCards() > 21) {
-                loosePlayers.add(end_players);
+        for(Player endPlayer: playerArrayList) {
+            if(endPlayer.getSumaValueCards() > 21) {
+                loosePlayers.add(endPlayer);
             } else {
-                winnerPlayers.add(end_players);
+                winnerPlayers.add(endPlayer);
             }
         }
-        for(Player end_players: winnerPlayers) {
+        for(Player endPlayer: winnerPlayers) {
 
-            if(end_players.getSumaValueCards() > maxPoints) {
-                maxPoints = end_players.getSumaValueCards();
+            if(endPlayer.getSumaValueCards() > maxPoints) {
+                maxPoints = endPlayer.getSumaValueCards();
             }
         }
         // for loop is here to prevent ConcurrentModificationException
@@ -102,13 +102,13 @@ public class Main {
             }
         }
         System.out.println("Players that lost:");
-        for (Player loose_player: loosePlayers) {
-            System.out.println(loose_player);
+        for (Player loosePlayer: loosePlayers) {
+            System.out.println(loosePlayer);
         }
         System.out.println("_____________________________");
         System.out.println("Players that won:");
-        for (Player winner_player: winnerPlayers) {
-            System.out.println(winner_player);
+        for (Player winnerPlayer: winnerPlayers) {
+            System.out.println(winnerPlayer);
         }
         System.out.println();
         loosePlayers.clear();
