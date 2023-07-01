@@ -97,10 +97,10 @@ public class Main {
         // for loop is here to prevent ConcurrentModificationException
         for(int i = 0; i < winnerPlayers.size()-1; i++) {
             if(winnerPlayers.get(i).getSumaValueCards() != maxPoints) {
-                winnerPlayers.remove(i);
                 loosePlayers.add(winnerPlayers.get(i));
             }
         }
+        winnerPlayers.removeAll(loosePlayers);
         System.out.println("Players that lost:");
         for (Player loosePlayer: loosePlayers) {
             System.out.println(loosePlayer);

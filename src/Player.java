@@ -38,6 +38,14 @@ public class Player {
         return "Player" + this.id + " : " + this.name;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player that = (Player) o;
+        return sumaValue == that.sumaValue && id == that.id && Objects.equals(name, that.name) && Objects.equals(cardCollection, that.cardCollection);
+    }
+
     public void takeCard() {
         Card card = Card.getRandom();
         cardCollection.add(card);
