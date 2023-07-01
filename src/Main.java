@@ -23,7 +23,7 @@ public class Main {
                             countPlayers = scanner.nextInt();
                         } catch (InputMismatchException e) {
                             countPlayers = 0;
-                            System.out.println("Error input needs to be number");
+                            System.out.println("Fatal error input needs to be number");
                              break loop;
                         }
                         scanner.nextLine();
