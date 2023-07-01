@@ -5,36 +5,31 @@ public class Main {
     public static void main(String[] args) {
         ArrayList<Player> arrayPlayers = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
-        int countPlayers = 0;
-        int counterPlayers;
+        int countPlayers;
 
         System.out.println("Welcome to blackjack");
 
         loop: while (true) {
             arrayPlayers.clear();
-            counterPlayers = 1;
             System.out.println("Enter 1 to start\nEnter 2 to read the rules\nEnter 3 to end the game");
 
             switch (scanner.nextInt()) {
                 case 1:
                     System.out.println("Amount of players is 2-7");
-                    System.out.println("Input amount of players: ");
+
                     while (true) {
+                        System.out.println("Input amount of players: ");
                         countPlayers = scanner.nextInt();
                         scanner.nextLine();
-                        if(counterPlayers < 8) {
+                        if(countPlayers < 8) {
                             break;
                         }
                         System.out.println("Error input again max is 7 players");
                     }
+                    for(int i = 0; i<countPlayers; i++) {
 
-
-
-                    while(counterPlayers <= countPlayers) {
-
-                        System.out.print("Input name of player" + counterPlayers + ": ");
-                        arrayPlayers.add(new Player(scanner.nextLine(), counterPlayers));
-                        counterPlayers += 1;
+                        System.out.print("Input name of player" + (i+1) + ": ");
+                        arrayPlayers.add(new Player(scanner.nextLine(), (i+1)));
                     }
                     game(arrayPlayers);
                     continue;
