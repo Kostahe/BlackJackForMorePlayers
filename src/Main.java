@@ -1,8 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-import java.util.Iterator;
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         ArrayList<Player> arrayPlayers = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         int countPlayers;
@@ -21,10 +20,10 @@ public class Main {
                         System.out.println("Input amount of players: ");
                         countPlayers = scanner.nextInt();
                         scanner.nextLine();
-                        if(countPlayers < 8) {
+                        if(countPlayers < 8 && countPlayers > 1) {
                             break;
                         }
-                        System.out.println("Error input again max is 7 players");
+                        System.out.println("Error input needs to be between 2-7");
                     }
                     for(int i = 0; i<countPlayers; i++) {
                         System.out.print("Input name of player" + (i+1) + ": ");
@@ -52,16 +51,13 @@ public class Main {
     }
 
 
-    public static void game(ArrayList<Player> playerArrayList) throws InterruptedException {
+    public static void game(ArrayList<Player> playerArrayList) {
 
         int maxPoints = 0;
         ArrayList<Player> loosePlayers = new ArrayList<>();
         ArrayList<Player> winnerPlayers = new ArrayList<>();
 
 
-
-        loosePlayers.clear();
-        winnerPlayers.clear();
         Scanner scanner = new Scanner(System.in);
         for(Player player : playerArrayList) {
             System.out.println(player.getName() + " now plays!");
@@ -84,8 +80,6 @@ public class Main {
                     default:
                         System.out.println(player.getName() + " input only 1 or 2");
                         break;
-
-
                 }
             }
         }
@@ -112,10 +106,12 @@ public class Main {
         for (Player loose_player: loosePlayers) {
             System.out.println(loose_player);
         }
-        System.out.println("____________________________");
+        System.out.println("_____________________________");
         System.out.println("Players that won:");
         for (Player winner_player: winnerPlayers) {
             System.out.println(winner_player);
         }
+        loosePlayers.clear();
+        winnerPlayers.clear();
     }
 }
