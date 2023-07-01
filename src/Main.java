@@ -58,7 +58,7 @@ public class Main {
         ArrayList<Player> loosePlayers = new ArrayList<>();
         ArrayList<Player> winnerPlayers = new ArrayList<>();
         Iterator<Player> playerIterator = playerArrayList.iterator();
-        Iterator<Player> loosePlayersIterator = loosePlayers.iterator()
+        Iterator<Player> loosePlayersIterator = loosePlayers.iterator();
         Iterator<Player> winnerPlayersIterator = winnerPlayers.iterator();
 
         loosePlayers.clear();
