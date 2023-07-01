@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.util.ArrayList;
-
+import java.util.Iterator;
 public class Main {
     public static void main(String[] args) {
         ArrayList<Player> arrayPlayers = new ArrayList<>();
@@ -27,7 +27,6 @@ public class Main {
                         System.out.println("Error input again max is 7 players");
                     }
                     for(int i = 0; i<countPlayers; i++) {
-
                         System.out.print("Input name of player" + (i+1) + ": ");
                         arrayPlayers.add(new Player(scanner.nextLine(), (i+1)));
                     }
@@ -54,6 +53,16 @@ public class Main {
 
 
     public static void game(ArrayList<Player> playerArrayList) {
+
+        int maxPoints = 0;
+        ArrayList<Player> loosePlayers = new ArrayList<>();
+        ArrayList<Player> winnerPlayers = new ArrayList<>();
+        Iterator<Player> playerIterator = playerArrayList.iterator();
+        Iterator<Player> loosePlayersIterator = loosePlayers.iterator()
+        Iterator<Player> winnerPlayersIterator = winnerPlayers.iterator();
+
+        loosePlayers.clear();
+        winnerPlayers.clear();
         Scanner scanner = new Scanner(System.in);
         for(Player player: playerArrayList) {
             System.out.println(player.getName() + " now plays!");
@@ -81,6 +90,34 @@ public class Main {
                 }
             }
             // end of game
+            for(Player end_players: playerArrayList) {
+                if(end_players.getSumaValueCards() > 21) {
+                    loosePlayers.add(end_players);
+                } else {
+                    winnerPlayers.add(end_players);
+                }
+            }
+            for(Player end_players: winnerPlayers) {
+                if(end_players.getSumaValueCards() > maxPoints) {
+                    maxPoints = end_players.getSumaValueCards();
+                }
+            }
+            for(Player end_players: winnerPlayers) {
+                if(end_players.getSumaValueCards() == maxPoints) {
+                    winnerPlayers.add(end_players);
+                } else {
+                    loosePlayers.add(end_players);
+                }
+            }
+            System.out.println("Players that lost:");
+            for (Player loose_players: loosePlayers) {
+                System.out.println(loose_players);
+            }
+            System.out.println("____________________________");
+            System.out.println("Players that won:");
+            for (Player loose_players: loosePlayers) {
+                System.out.println(loose_players);
+            }
 
         }
     }
