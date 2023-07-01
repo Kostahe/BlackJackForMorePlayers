@@ -34,8 +34,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "E:/Coding/Java/Homework from Sergii/Projects/BlackJackForMorePlayers",
-    "onboarding.tips.debug.path": "E:/Coding/Java/Homework from Sergii/Projects/BlackJackForMorePlayers/src/Main.java"
+    "last_opened_file_path": "E:/Coding/Java/Homework from Sergii/Projects/BlackJackForMorePlayers"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -89,12 +88,29 @@
       <option name="project" value="LOCAL" />
       <updated>1688239116368</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="NewBlackJack">
+      <created>1688240318412</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1688240318412</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="OldBlackJack" />
     <MESSAGE value="NewBlackJack" />
     <option name="LAST_COMMIT_MESSAGE" value="NewBlackJack" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.ConcurrentModificationException" package="java.util" />
+          <option name="timeStamp" value="14" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
