@@ -12,8 +12,8 @@ public class Main {
             arrayPlayers.clear();
             System.out.println("Enter 1 to start\nEnter 2 to read the rules\nEnter 3 to end the game");
 
-            switch (scanner.nextInt()) {
-                case 1:
+            switch (scanner.nextLine()) {
+                case "1":
                     System.out.println("Amount of players is 2-7");
 
                     while (true) {
@@ -31,10 +31,10 @@ public class Main {
                     }
                     game(arrayPlayers);
                     continue;
-                case 2:
+                case "2":
                     printRules();
                     continue;
-                case 3:
+                case "3":
                     System.out.println("Bye");
                     break loop;
 
@@ -67,12 +67,12 @@ public class Main {
                 System.out.println("Suma is: " + player.getSumaValueCards());
 
                 System.out.println("\nEnter 1 for hit\nEnter 2 for stand");
-                switch (scanner.nextInt()) {
-                    case 1:
+                switch (scanner.nextLine()) {
+                    case "1":
                         player.takeCard();
                         System.out.println("You took: " + player.getCardCollection().get(player.getCardCollection().toArray().length-1));
                         break;
-                    case 2:
+                    case "2":
                         System.out.println("____________________________");
                         break loop;
                     default:
@@ -94,10 +94,9 @@ public class Main {
                 maxPoints = endPlayer.getSumaValueCards();
             }
         }
-        // for loop is here to prevent ConcurrentModificationException
-        for(int i = 0; i < winnerPlayers.size()-1; i++) {
-            if(winnerPlayers.get(i).getSumaValueCards() != maxPoints) {
-                loosePlayers.add(winnerPlayers.get(i));
+        for(Player endPlayer: winnerPlayers) {
+            if(endPlayer.getSumaValueCards() != maxPoints) {
+                loosePlayers.add(endPlayer);
             }
         }
         winnerPlayers.removeAll(loosePlayers);
