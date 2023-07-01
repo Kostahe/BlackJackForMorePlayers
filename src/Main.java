@@ -45,10 +45,8 @@ public class Main {
                 case "3":
                     System.out.println("Bye");
                     break loop;
-
                 default:
                     System.out.println("Error input 1 or 2 or 3");
-
             }
         }
     }
@@ -62,8 +60,6 @@ public class Main {
         int maxPoints = 0;
         ArrayList<Player> loosePlayers = new ArrayList<>();
         ArrayList<Player> winnerPlayers = new ArrayList<>();
-
-
         Scanner scanner = new Scanner(System.in);
         for(Player player : playerArrayList) {
             System.out.println(player.getName() + " now plays!");
@@ -97,7 +93,6 @@ public class Main {
             }
         }
         for(Player endPlayer: winnerPlayers) {
-
             if(endPlayer.getSumaValueCards() > maxPoints) {
                 maxPoints = endPlayer.getSumaValueCards();
             }
