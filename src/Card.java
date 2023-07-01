@@ -7,7 +7,7 @@ public enum Card {
         this.VALUE = VALUE;
     }
     public int getVALUE() {
-        return VALUE;
+        return this.VALUE;
     }
 
     public static Card getRandom() {

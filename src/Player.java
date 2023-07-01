@@ -5,7 +5,7 @@ public class Player {
     private int sumaValue = 0;
     final private int id;
     private String name;
-    private ArrayList<Card> cardCollection = new ArrayList<>();
+    private final ArrayList<Card> cardCollection = new ArrayList<>();
 
     public Player(String name, int id) {
         this.name = name;
@@ -15,16 +15,16 @@ public class Player {
         }
     }
     public int getSumaValueCards() {
-        return sumaValue;
+        return this.sumaValue;
     }
     public String getName() {
-        return name;
+        return this.name;
     }
     public int getId() {
-        return id;
+        return this.id;
     }
     public ArrayList<Card> getCardCollection() {
-        return cardCollection;
+        return this.cardCollection;
     }
     public void setSumaValue(int sumaValue) {
         this.sumaValue = sumaValue;
@@ -35,7 +35,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player" + this.id + " : " + this.name;
+        return "Player" + this.id + " : " + this.name + " with cards: " + this.cardCollection + " suma of cards is" + this.sumaValue;
     }
 
     @Override
