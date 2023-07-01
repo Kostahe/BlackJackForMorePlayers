@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
 public class Main {
@@ -17,13 +18,20 @@ public class Main {
                     System.out.println("Amount of players is 2-7");
 
                     while (true) {
-                        System.out.println("Input amount of players: ");
-                        countPlayers = scanner.nextInt();
+                        try {
+                            System.out.println("Input amount of players: ");
+                            countPlayers = scanner.nextInt();
+                        } catch (InputMismatchException e) {
+                            countPlayers = 0;
+                            System.out.println("Error input needs to be number");
+                             break loop;
+                        }
                         scanner.nextLine();
                         if(countPlayers < 8 && countPlayers > 1) {
                             break;
+                        } else {
+                            System.out.println("Error input needs to be between 2-7");
                         }
-                        System.out.println("Error input needs to be between 2-7");
                     }
                     for(int i = 0; i<countPlayers; i++) {
                         System.out.print("Input name of player" + (i+1) + ": ");
