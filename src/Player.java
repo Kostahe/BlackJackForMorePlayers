@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Player {
     private int sumaValue = 0;
@@ -47,21 +48,12 @@ public class Player {
         sumaValue += card.getVALUE();
     }
 
-    public Player comparePlayers(Player otherPlayer) {
-        Player winner;
-        if((this.getSumaValueCards() > otherPlayer.getSumaValueCards()) && (this.getSumaValueCards()<=21)) {
-            winner = this;
-        } else if ((this.getSumaValueCards() < otherPlayer.getSumaValueCards()) && (otherPlayer.getSumaValueCards()<= 21)) {
-            winner = otherPlayer;
-        } else if ((this.getSumaValueCards() > otherPlayer.getSumaValueCards()) && (this.getSumaValueCards() > 21) && (otherPlayer.getSumaValueCards() <= 21)) {
-            winner = otherPlayer;
-
-        } else if ((this.getSumaValueCards() < otherPlayer.getSumaValueCards()) && (otherPlayer.getSumaValueCards() > 21) && (this.getSumaValueCards() <= 21)) {
-            winner = this;
-        } else {
-            winner = null;
-        }
-        return winner;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return sumaValue == player.sumaValue && id == player.id && Objects.equals(name, player.name) && Objects.equals(cardcollection, player.cardcollection);
     }
 
 }

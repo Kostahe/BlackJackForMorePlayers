@@ -58,13 +58,12 @@ public class Main {
         ArrayList<Player> loosePlayers = new ArrayList<>();
         ArrayList<Player> winnerPlayers = new ArrayList<>();
         Iterator<Player> playerIterator = playerArrayList.iterator();
-        Iterator<Player> loosePlayersIterator = loosePlayers.iterator();
-        Iterator<Player> winnerPlayersIterator = winnerPlayers.iterator();
 
         loosePlayers.clear();
         winnerPlayers.clear();
         Scanner scanner = new Scanner(System.in);
-        for(Player player: playerArrayList) {
+        while(playerIterator.hasNext()) {
+            Player player = playerIterator.next();
             System.out.println(player.getName() + " now plays!");
             loop: while (true) {
                 System.out.println("Your cards are: ");
@@ -89,36 +88,37 @@ public class Main {
 
                 }
             }
-            // end of game
-            for(Player end_players: playerArrayList) {
-                if(end_players.getSumaValueCards() > 21) {
-                    loosePlayers.add(end_players);
-                } else {
-                    winnerPlayers.add(end_players);
-                }
-            }
-            for(Player end_players: winnerPlayers) {
-                if(end_players.getSumaValueCards() > maxPoints) {
-                    maxPoints = end_players.getSumaValueCards();
-                }
-            }
-            for(Player end_players: winnerPlayers) {
-                if(end_players.getSumaValueCards() == maxPoints) {
-                    winnerPlayers.add(end_players);
-                } else {
-                    loosePlayers.add(end_players);
-                }
-            }
-            System.out.println("Players that lost:");
-            for (Player loose_players: loosePlayers) {
-                System.out.println(loose_players);
-            }
-            System.out.println("____________________________");
-            System.out.println("Players that won:");
-            for (Player loose_players: loosePlayers) {
-                System.out.println(loose_players);
-            }
-
         }
+        for(Player end_players: playerArrayList) {
+            if(end_players.getSumaValueCards() > 21) {
+                loosePlayers.add(end_players);
+            } else {
+                winnerPlayers.add(end_players);
+            }
+        }
+        for(Player end_players: winnerPlayers) {
+
+            if(end_players.getSumaValueCards() > maxPoints) {
+                maxPoints = end_players.getSumaValueCards();
+            }
+        }
+        for(Player end_players: winnerPlayers) {
+            if(end_players.getSumaValueCards() == maxPoints) {
+                winnerPlayers.add(end_players);
+            } else {
+                winnerPlayers.remove(loosePlayers);
+                loosePlayers.add(end_players);
+            }
+        }
+        System.out.println("Players that lost:");
+        for (Player loose_players: loosePlayers) {
+            System.out.println(loose_players);
+        }
+        System.out.println("____________________________");
+        System.out.println("Players that won:");
+        for (Player loose_players: loosePlayers) {
+            System.out.println(loose_players);
+        }
+
     }
 }
