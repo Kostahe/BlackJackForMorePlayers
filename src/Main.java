@@ -58,7 +58,7 @@ public class Main {
         System.out.println("Ace is 1\nJack, king and queen is 10");
     }
     public static void game(ArrayList<Player> playerArrayList) {
-
+        int counterLoosePlace = 2;
         int maxPoints = 0;
         ArrayList<Player> loosePlayers = new ArrayList<>();
         ArrayList<Player> firedPlayers = new ArrayList<>();
@@ -118,11 +118,10 @@ public class Main {
         for (Player winnerPlayer: winnerPlayers) {
             System.out.println("1. " + winnerPlayer);
         }
-        int counterPlace = 2;
         System.out.println("Players that lost:");
         for (Player loosePlayer: loosePlayers) {
-            System.out.println(counterPlace + ". " +loosePlayer);
-            counterPlace ++;
+            System.out.println(counterLoosePlace + ". " +loosePlayer);
+            counterLoosePlace  ++;
         }
         System.out.println();
         loosePlayers.clear();
