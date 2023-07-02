@@ -35,7 +35,7 @@ public class Player {
 
     @Override
     public String toString() {
-        return "Player" + this.id + " : " + this.name + " with cards: " + this.cardCollection + " suma of cards is" + this.sumaValue;
+        return "Player" + this.id + " : " + this.name + " with cards: " + this.cardCollection + " suma of cards is " + this.sumaValue;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class Player {
     }
 
     public void takeCard() {
-        Card card = Card.getRandom();
+        Card card = Card.getRandomCard();
         cardCollection.add(card);
         sumaValue += card.getVALUE();
     }
