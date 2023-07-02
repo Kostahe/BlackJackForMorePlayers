@@ -124,7 +124,6 @@ public class Main {
             System.out.println(counterPlace + ". " +loosePlayer);
             counterPlace ++;
         }
-
         System.out.println();
         loosePlayers.clear();
         winnerPlayers.clear();
