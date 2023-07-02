@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Player {
+public class Player implements Comparable<Player> {
     private Integer sumaValue = 0;
     final private int id;
     private String name;
@@ -45,11 +45,23 @@ public class Player {
         Player that = (Player) o;
         return sumaValue == that.sumaValue && id == that.id && Objects.equals(name, that.name) && Objects.equals(cardCollection, that.cardCollection);
     }
+    @Override
+    public int compareTo(Player anotherPlayer) {
+        if(this.getSumaValueCards() == anotherPlayer.getSumaValueCards()) {
+            return 0;
+        } else if (this.sumaValue < anotherPlayer.getSumaValueCards()) {
+            return -1;
+        } else {
+            return 1;
+        }
+    }
+
     // Gives random card to player
     public void takeCard() {
         Card card = Card.getRandomCard();
         cardCollection.add(card);
         sumaValue += card.getVALUE();
     }
+
 
 }
