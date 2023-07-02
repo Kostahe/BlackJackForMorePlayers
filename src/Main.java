@@ -22,7 +22,6 @@ public class Main {
                             System.out.println("Input amount of players: ");
                             countPlayers = scanner.nextInt();
                         } catch (InputMismatchException e) {
-                            countPlayers = 0;
                             System.out.println("Fatal error input needs to be number");
                              break loop;
                         }
