@@ -120,7 +120,7 @@ public class Main {
         }
         System.out.println("Players that lost:");
         for (Player loosePlayer: loosePlayers) {
-            System.out.println(counterLoosePlace + ". " +loosePlayer);
+            System.out.println(counterLoosePlace + ". " + loosePlayer);
             counterLoosePlace  ++;
         }
         System.out.println();
