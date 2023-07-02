@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Player implements Comparable<Player> {
-    private Integer sumaValue = 0;
+    private int sumaValue = 0;
     final private int id;
     private String name;
     private final ArrayList<Card> cardCollection = new ArrayList<>();
@@ -14,7 +14,7 @@ public class Player implements Comparable<Player> {
             this.takeCard();
         }
     }
-    public Integer getSumaValueCards() {
+    public int getSumaValueCards() {
         return this.sumaValue;
     }
     public String getName() {
