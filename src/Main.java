@@ -2,6 +2,7 @@ import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Comparator;
 public class Main {
     public static void main(String[] args) {
         ArrayList<Player> arrayPlayers = new ArrayList<>();
@@ -105,11 +106,9 @@ public class Main {
                 loosePlayers.add(endPlayer);
             }
         }
-        loosePlayers.sort((o1, o2)
-                -> o1.getSumaValueCards().compareTo(o2.getSumaValueCards()));
+        loosePlayers.sort(Comparator.comparing(Player::getSumaValueCards));
         Collections.reverse(loosePlayers);
-        firedPlayers.sort((o1, o2)
-                -> o1.getSumaValueCards().compareTo(o2.getSumaValueCards()));
+        firedPlayers.sort(Comparator.comparing(Player::getSumaValueCards));
         loosePlayers.addAll(firedPlayers);
         winnerPlayers.removeAll(loosePlayers);
 
