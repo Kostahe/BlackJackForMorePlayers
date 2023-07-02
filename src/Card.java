@@ -10,13 +10,13 @@ public enum Card {
     public int getVALUE() {
         return this.VALUE;
     }
-
-    public static Card getRandomCard() {
-        return values()[(int) (Math.random() * values().length)];
-    }
-
     @Override
     public String toString() {
         return this.cardSuit + " " + this.name();
     }
+    // generates random card
+    public static Card getRandomCard() {
+        return values()[(int) (Math.random() * values().length)];
+    }
+
 }

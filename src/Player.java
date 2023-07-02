@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Player {
-    private int sumaValue = 0;
+    private Integer sumaValue = 0;
     final private int id;
     private String name;
     private final ArrayList<Card> cardCollection = new ArrayList<>();
@@ -14,7 +14,7 @@ public class Player {
             this.takeCard();
         }
     }
-    public int getSumaValueCards() {
+    public Integer getSumaValueCards() {
         return this.sumaValue;
     }
     public String getName() {
@@ -45,10 +45,11 @@ public class Player {
         Player that = (Player) o;
         return sumaValue == that.sumaValue && id == that.id && Objects.equals(name, that.name) && Objects.equals(cardCollection, that.cardCollection);
     }
-
+    // Gives random card to player
     public void takeCard() {
         Card card = Card.getRandomCard();
         cardCollection.add(card);
         sumaValue += card.getVALUE();
     }
+
 }

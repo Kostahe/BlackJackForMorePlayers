@@ -1,3 +1,4 @@
+import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -49,15 +50,18 @@ public class Main {
             }
         }
     }
+    // Prints rules of the game
     public static void printRules() {
         System.out.println("There are the rules:");
         System.out.println("Blackjack hands are scored by their point total.\nThe hand with the highest total wins as long as it doesn't exceed 21.\nThe hand with a higher total than 21 is said to bust.");
-        System.out.println("Max amount of players is 7");
+        System.out.println("Amount of players that can play is between 2-7.");
+        System.out.println("Ace is 1\nJack, king and queen is 10");
     }
     public static void game(ArrayList<Player> playerArrayList) {
 
         int maxPoints = 0;
         ArrayList<Player> loosePlayers = new ArrayList<>();
+        ArrayList<Player> firedPlayers = new ArrayList<>();
         ArrayList<Player> winnerPlayers = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         for(Player player : playerArrayList) {
@@ -86,7 +90,7 @@ public class Main {
         }
         for(Player endPlayer: playerArrayList) {
             if(endPlayer.getSumaValueCards() > 21) {
-                loosePlayers.add(endPlayer);
+                firedPlayers.add(endPlayer);
             } else {
                 winnerPlayers.add(endPlayer);
             }
@@ -101,16 +105,26 @@ public class Main {
                 loosePlayers.add(endPlayer);
             }
         }
+        loosePlayers.sort((o1, o2)
+                -> o1.getSumaValueCards().compareTo(o2.getSumaValueCards()));
+        Collections.reverse(loosePlayers);
+        firedPlayers.sort((o1, o2)
+                -> o1.getSumaValueCards().compareTo(o2.getSumaValueCards()));
+        loosePlayers.addAll(firedPlayers);
         winnerPlayers.removeAll(loosePlayers);
-        System.out.println("Players that lost:");
-        for (Player loosePlayer: loosePlayers) {
-            System.out.println(loosePlayer);
-        }
+
         System.out.println("_____________________________");
         System.out.println("Players that won:");
         for (Player winnerPlayer: winnerPlayers) {
-            System.out.println(winnerPlayer);
+            System.out.println("1. " + winnerPlayer);
         }
+        int counterPlace = 2;
+        System.out.println("Players that lost:");
+        for (Player loosePlayer: loosePlayers) {
+            System.out.println(counterPlace + ". " +loosePlayer);
+            counterPlace ++;
+        }
+
         System.out.println();
         loosePlayers.clear();
         winnerPlayers.clear();
