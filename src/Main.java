@@ -59,7 +59,6 @@ public class Main {
         List<Card> cardsList = new ArrayList<>();
         List<CardValue> valuesList = new ArrayList<>();
 
-
         valuesList.add(CardValue.two);
         valuesList.add(CardValue.three);
         valuesList.add(CardValue.four);
@@ -73,7 +72,6 @@ public class Main {
         valuesList.add(CardValue.queen);
         valuesList.add(CardValue.king);
         valuesList.add(CardValue.ace);
-
 
         for (int i = 0; i< 11; i++) {
             cardsList.add(new Card(valuesList.get(i), CardSuit.Hearts));
@@ -96,23 +94,29 @@ public class Main {
             System.out.println(player.getName() + " now plays!");
             loop: while (true) {
                 System.out.println("Your cards are: ");
-                for(Card card : player.getCardCollection()) {
+                for (Card card : player.getCardCollection()) {
                     System.out.println(card + " ");
                 }
                 System.out.println("Suma is: " + player.getSumaValueCards());
+                if (player.getSumaValueCards() <=21) {
 
-                System.out.println("\nEnter 1 for hit\nEnter 2 for stand");
-                switch (scanner.nextLine()) {
-                    case "1":
-                        player.takeCard(cardsList);
-                        System.out.println("You took: " + player.getCardCollection().get(player.getCardCollection().toArray().length-1));
-                        break;
-                    case "2":
-                        System.out.println("____________________________");
-                        break loop;
-                    default:
-                        System.out.println(player.getName() + " input only 1 or 2");
-                        break;
+                    System.out.println("\nEnter 1 for hit\nEnter 2 for stand");
+                    switch (scanner.nextLine()) {
+                        case "1":
+                            player.takeCard(cardsList);
+                            System.out.println("You took: " + player.getCardCollection().get(player.getCardCollection().toArray().length - 1));
+                            break;
+                        case "2":
+                            System.out.println("____________________________");
+                            break loop;
+                        default:
+                            System.out.println(player.getName() + " input only 1 or 2");
+                            break;
+                    }
+                }
+                else {
+                    System.out.println(player.getName() + "you busted");
+                    break loop;
                 }
             }
         }
