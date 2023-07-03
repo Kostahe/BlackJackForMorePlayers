@@ -54,7 +54,6 @@ public class Player implements Comparable<Player> {
         }
     }
 
-
     public void takeCard(List<Card> cardsList) {
         int randomIndex = (int) (Math.random() * cardsList.size());
         Card card = cardsList.get(randomIndex);
