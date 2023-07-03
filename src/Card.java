@@ -49,7 +49,7 @@ public class Card {
         valuesList.add(CardValue.king);
         valuesList.add(CardValue.ace);
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < 13; i++) {
             cardsList.add(new Card(valuesList.get(i), CardSuit.Hearts));
             cardsList.add(new Card(valuesList.get(i), CardSuit.Tiles));
             cardsList.add(new Card(valuesList.get(i), CardSuit.Clovers));
