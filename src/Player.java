@@ -45,13 +45,7 @@ public class Player implements Comparable<Player> {
     }
     @Override
     public int compareTo(Player anotherPlayer) {
-        if(this.getSumaValueCards() == anotherPlayer.getSumaValueCards()) {
-            return 0;
-        } else if (this.sumaValue < anotherPlayer.getSumaValueCards()) {
-            return -1;
-        } else {
-            return 1;
-        }
+        return this.getSumaValueCards() - anotherPlayer.getSumaValueCards();
     }
 
     public void takeCard(List<Card> cardsList) {
