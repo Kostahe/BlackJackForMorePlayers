@@ -55,7 +55,7 @@ public class Main {
         System.out.println("There are the rules:");
         System.out.println("Blackjack hands are scored by their point total.\nThe hand with the highest total wins as long as it doesn't exceed 21.\nThe hand with a higher total than 21 is said to bust.");
         System.out.println("Amount of players that can play is between 2-7.");
-        System.out.println("Ace is 1\nJack, king and queen is 10");
+        System.out.println("Ace is 11\nJack, king and queen is 10");
     }
     public static void game(ArrayList<Player> playerArrayList) {
         int counterLoosePlace = 2;
