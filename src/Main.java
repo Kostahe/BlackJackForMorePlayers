@@ -89,7 +89,8 @@ public class Main {
                     }
                 }
                 else {
-                    System.out.println(player.getName() + "you busted");
+                    System.out.println(player.getName() + " you busted");
+                    System.out.println("____________________________");
                     break loop;
                 }
             }
