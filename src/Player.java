@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Player implements Comparable<Player> {
@@ -53,12 +54,16 @@ public class Player implements Comparable<Player> {
         }
     }
 
-    // Gives random card to player
-    public void takeCard() {
-        Card card = Card.getRandomCard();
-        cardCollection.add(card);
-        sumaValue += card.getVALUE();
-    }
 
+    public void takeCard(List<Card> cardsList) {
+        int randomIndex = (int) (Math.random() * cardsList.size());
+        Card card = cardsList.get(randomIndex);
+        this.cardCollection.add(card);
+        this.sumaValue += card.getCardValue().getVALUE();
+        cardsList.remove(randomIndex);
+    }
+//    Card card = Card.getRandomCard();
+//    cardCollection.add(card);
+//    sumaValue += card.getVALUE();
 
 }

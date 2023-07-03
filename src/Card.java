@@ -1,22 +1,30 @@
-public enum Card {
-    ace(11), two(2), three(3), four(4), five(5), six(6), seven(7), eight(8), nine(9), ten(10), jack(10), queen(10), king(10);
+public class Card {
+    private CardValue cardValue;
+    private CardSuit cardSuit;
 
-    private final int VALUE;
-    private final CardSuit cardSuit = CardSuit.getRandomSuit();
+    public Card(CardValue cardValue, CardSuit cardSuit) {
+        this.cardValue = cardValue;
+        this.cardSuit = cardSuit;
+    }
 
-    Card(int VALUE) {
-        this.VALUE = VALUE;
+    public CardValue getCardValue() {
+        return cardValue;
     }
-    public int getVALUE() {
-        return this.VALUE;
+
+    public void setCardValue(CardValue cardValue) {
+        this.cardValue = cardValue;
     }
+
+    public CardSuit getCardSuit() {
+        return cardSuit;
+    }
+
+    public void setCardSuit(CardSuit cardSuit) {
+        this.cardSuit = cardSuit;
+    }
+
     @Override
     public String toString() {
-        return this.cardSuit + " " + this.name();
+        return this.cardSuit + " " + this.cardValue;
     }
-    // generates random card
-    public static Card getRandomCard() {
-        return values()[(int) (Math.random() * values().length)];
-    }
-
 }

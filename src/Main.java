@@ -1,7 +1,5 @@
-import java.util.Collections;
-import java.util.InputMismatchException;
-import java.util.Scanner;
-import java.util.ArrayList;
+import java.util.*;
+
 public class Main {
     public static void main(String[] args) {
         ArrayList<Player> arrayPlayers = new ArrayList<>();
@@ -57,12 +55,42 @@ public class Main {
         System.out.println("Amount of players that can play is between 2-7.");
         System.out.println("Ace is 11\nJack, king and queen is 10");
     }
+    public static List<Card> generateCardList() {
+        List<Card> cardsList = new ArrayList<>();
+        List<CardValue> valuesList = new ArrayList<>();
+
+
+        valuesList.add(CardValue.two);
+        valuesList.add(CardValue.three);
+        valuesList.add(CardValue.four);
+        valuesList.add(CardValue.five);
+        valuesList.add(CardValue.six);
+        valuesList.add(CardValue.seven);
+        valuesList.add(CardValue.eight);
+        valuesList.add(CardValue.nine);
+        valuesList.add(CardValue.ten);
+        valuesList.add(CardValue.jack);
+        valuesList.add(CardValue.queen);
+        valuesList.add(CardValue.king);
+        valuesList.add(CardValue.ace);
+
+
+        for (int i = 0; i< 11; i++) {
+            cardsList.add(new Card(valuesList.get(i), CardSuit.Hearts));
+            cardsList.add(new Card(valuesList.get(i), CardSuit.Tiles));
+            cardsList.add(new Card(valuesList.get(i), CardSuit.Clovers));
+            cardsList.add(new Card(valuesList.get(i), CardSuit.Pikes));
+        }
+        Collections.shuffle(cardsList);
+        return cardsList;
+    }
     public static void game(ArrayList<Player> playerArrayList) {
         int counterLoosePlace = 2;
         int maxPoints = 0;
         ArrayList<Player> loosePlayers = new ArrayList<>();
         ArrayList<Player> firedPlayers = new ArrayList<>();
         ArrayList<Player> winnerPlayers = new ArrayList<>();
+        List<Card> cardsList = generateCardList();
         Scanner scanner = new Scanner(System.in);
         for(Player player : playerArrayList) {
             System.out.println(player.getName() + " now plays!");
@@ -76,7 +104,7 @@ public class Main {
                 System.out.println("\nEnter 1 for hit\nEnter 2 for stand");
                 switch (scanner.nextLine()) {
                     case "1":
-                        player.takeCard();
+                        player.takeCard(cardsList);
                         System.out.println("You took: " + player.getCardCollection().get(player.getCardCollection().toArray().length-1));
                         break;
                     case "2":
