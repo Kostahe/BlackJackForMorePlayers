@@ -30,8 +30,6 @@ public class Card {
     @Override
     public String toString() {
         return this.cardSuit + " " + this.cardValue;
-
-
     }
     public static List<Card> generateCardList() {
         List<Card> cardsList = new ArrayList<>();
