@@ -10,9 +10,6 @@ public class Player implements Comparable<Player> {
     public Player(String name, int id) {
         this.name = name;
         this.id = id;
-        for(int i = 0; i < 2;i++) {
-            this.takeCard();
-        }
     }
     public int getSumaValueCards() {
         return this.sumaValue;
